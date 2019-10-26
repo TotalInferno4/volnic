@@ -10,9 +10,15 @@ export class StatMatiereParClassService {
   // //public url: string = "192.168.1.62:1852/"; //Anjara
 
   constructor(private http: HttpClient) { }
- 
-  getStatMatiereParClass(idClassroom: number){
-    return this.http.get(this.url + 'statistique/statistiqueMatiereParClass/' + idClassroom + '/2008/2011')
+
+  getStatMatiereParClass(idClassroom: number, years1: number, years2: number) {
+    console.log(this.url + 'statistique/statistiqueMatiereParClass/' + idClassroom + '/' + years1 + '/' + years2);
+    return this.http.get(this.url + 'statistique/statistiqueMatiereParClass/' + idClassroom + '/' + years1 + '/' + years2)
+    .toPromise();
+  }
+
+  getLisClass() {
+    return this.http.get(this.url + 'class/all ')
     .toPromise();
   }
 }

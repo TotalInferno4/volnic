@@ -37,18 +37,11 @@
                                         <h4 class="card-title m-t-5"><span class="lstick"></span>Veuillez choisir la classe : </h4>
                                     </div>
                                     <div class="ml-2">
-                                        <select class="custom-select">
-                                            <option selected="">6e</option>
-                                            <option value="1">5e</option>
-                                            <option value="2">4e</option>
-                                            <option value="3">3e</option>
-                                            <option value="3">2nde</option>
-                                            <option value="3">1ère</option>
-                                            <option value="3">Tle</option>
+                                        <select (ngModel)="selectedClass" (change)="onChange($event.target.value)" class="custom-select">
+                                            <option *ngFor="let class of listClass" [value]="class.IDCLASSROOM" >{{class.CLASSNAME}}</option>
                                         </select>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                     <div class="row">
@@ -86,23 +79,23 @@
                                             <div class="d-flex">
                                                 <h4 class="card-title m-t-5"><span class="lstick"></span>Entre </h4>
                                                 <div class="ml-1">
-                                                    <select class="custom-select">
-                                                        <option value="1">2008</option>
-                                                        <option value="2">2009</option>
-                                                        <option value="3">2010</option>
-                                                        <option value="3">2011</option>
+                                                    <select (ngModel)="years1" (change)="onChangeYears1($event.target.value)" class="custom-select">
+                                                        <option [value]="2008">2008</option>
+                                                        <option [value]="2009">2009</option>
+                                                        <option [value]="2010">2010</option>
+                                                        <option [value]="2011">2011</option>
                                                     </select>
                                                 </div>
                                                 <h4 class="card-title m-t-10 m-l-5"> et </h4>
                                                 <div class="ml-1">
-                                                    <select class="custom-select">
-                                                        <option value="2">2009</option>
-                                                        <option value="3">2010</option>
-                                                        <option value="3">2011</option>
+                                                    <select (ngModel)="years2" (change)="onChangeYears2($event.target.value)" class="custom-select">
+                                                        <option [value]="2009">2009</option>
+                                                        <option [value]="2010">2010</option>
+                                                        <option [value]="2011">2011</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            [Graphe moy/matière] arg: idclassroom, année1, année2
+                                            <canvas id="barChart" height="100%"></canvas>
                                         </div>
                                     </div>
                                     <!--Points faibles et points forts-->
