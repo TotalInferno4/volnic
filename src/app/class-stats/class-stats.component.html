@@ -14,11 +14,7 @@
                         <h3 class="text-themecolor">Statistiques de la classe</h3>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item">Apps</li>
-                            <li class="breadcrumb-item active">Contact details</li>
-                        </ol>
+                        
                     </div>
                     
                 </div>
@@ -68,8 +64,8 @@
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs profile-tab" role="tablist">
                                     <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#averagePerSubject" role="tab">Moyennes par matière</a> </li>
-                                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#points" role="tab">Évolution annuelle des moyennes de la classe</a> </li>
-                                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#orientation" role="tab">Évolution annuelle des moyennes de la promotion</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#points" role="tab">Évolution des moyennes de la classe</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#orientation" role="tab">Évolution des moyennes de la promotion</a> </li>
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
@@ -101,34 +97,17 @@
                                     <!--Points faibles et points forts-->
                                     <div class="tab-pane" id="points" role="tabpanel">
                                         <div class="card-body">
-                                                <div class="d-flex">
-                                                        <h4 class="card-title m-t-5"><span class="lstick"></span>Entre </h4>
-                                                        <div class="ml-1">
-                                                            <select class="custom-select">
-                                                                <option value="1">2008</option>
-                                                                <option value="2">2009</option>
-                                                                <option value="3">2010</option>
-                                                                <option value="3">2011</option>
-                                                            </select>
-                                                        </div>
-                                                        <h4 class="card-title m-t-10 m-l-5"> et </h4>
-                                                        <div class="ml-1">
-                                                            <select class="custom-select">
-                                                                <option value="2">2009</option>
-                                                                <option value="3">2010</option>
-                                                                <option value="3">2011</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                            [Graphe évolution moyenne matière /classe / année scolaire ] arg: idclassroom, matière, année1, année2
+                                                
+                                            
+                                            <canvas id="evolutionClassChart" height="100%"></canvas>
                                         </div>
                                     </div>
                                     <!--Orientation-->
                                     <div class="tab-pane" id="orientation" role="tabpanel">
                                         <div class="card-body">
-                                            [Graphe évolution moyenne matière / promotion / année scolaire] arg : promotion
+                                            <canvas id="evolutionClassPromotion" height="100%"></canvas>
     
-                                            <p><b>Métier envisagé : </b> Médecin</p>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -205,7 +184,7 @@
                 <!-- footer -->
                 <!-- ============================================================== -->
                 <footer class="footer">
-                    © 2017 Admin Pro by wrappixel.com
+                    © 2019 Sinopsys by Minds Logic #DevFest
                 </footer>
                 <!-- ============================================================== -->
                 <!-- End footer -->

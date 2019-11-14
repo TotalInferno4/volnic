@@ -12,6 +12,7 @@ import { SingleStudentComponent } from './single-student/single-student.componen
 import { GeneralStatsComponent } from './general-stats/general-stats.component';
 import { ClassStatsComponent } from './class-stats/class-stats.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListStudentsComponent } from './list-students/list-students.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavClassroomComponent,
     SingleStudentComponent,
     GeneralStatsComponent,
-    ClassStatsComponent
+    ClassStatsComponent,
+    ListStudentsComponent
   ],
   imports: [
     BrowserModule,

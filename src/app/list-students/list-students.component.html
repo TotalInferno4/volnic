@@ -1,101 +1,92 @@
-
+        <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
-            
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Fiche de l'élève</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-   
-                </div>
+            <div class="container-fluid r-aside">
                 
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            
                 <!-- ============================================================== -->
-                <!-- Start Page Content -->
+                <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                <!-- Row -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card"> <img class="card-img" src="../assets/images/background/socialbg.jpg" alt="Card image">
-                            <div class="card-img-overlay card-inverse social-profile d-flex ">
-                                <div class="align-self-center"> <img src="../assets/images/users/1.jpg" class="img-circle" width="100">
-                                    <br/>
-                                    <h4 class="card-title">Nom : {{ student[0].FIRSTNAME }} </h4>
-                                    <h4 class="card-title">Prénom(s) : {{ student[0].LASTNAME }}</h4>
-                                    <p class="text-white">Classe : {{ student[0].CLASSNAME }}</p>
-                                    <p class="text-white">Classe : {{ niveau }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            
-                            <div class="card-body"> 
-                                <h5>Infos personnelles</h5>
-                                <small class="text-muted">Date de naissance</small><h6>21-12-1999</h6> 
-                                <small class="text-muted">Sexe</small><h6>Masculin</h6> 
-                                <small class="text-muted">Promotion</small><h6>6</h6> 
-
-                                
-                            </div>
-                        </div>
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">Liste des élèves</h3>
                     </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-8 col-xlg-9 col-md-7">
-                        <div class="card">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs profile-tab" role="tablist">
-                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#averagePerSubject" role="tab">Moyennes par matière</a> </li>
-                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#points" role="tab">Points faibles et points forts</a> </li>
-                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#orientation" role="tab">Orientation</a> </li>
-                            </ul>
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <!--Moyennes par matière-->
-                                <div class="tab-pane active" id="averagePerSubject" role="tabpanel">
-                                    <div class="card-body">
-                                        <canvas id="barChart" height="175%"></canvas>
-                                    </div>
-                                </div>
-                                <!--Points faibles et points forts-->
-                                <div class="tab-pane" id="points" role="tabpanel">
-                                    <div class="card-body">
-                                        <canvas id="polarChart" height="175%"></canvas>
-                                    </div>
-                                </div>
-                                <!--Orientation-->
-                                <div class="tab-pane" id="orientation" role="tabpanel">
-                                    <div class="card-body">
-                                        <canvas id="polarChartOrientation" height="165%"></canvas>
-                                        <hr/>
-                                        <h5>Métier envisagé : <b>Écrivain</b></h5>
-                                        <h5>Domaine le mieux maîtrisé :  <b>Sciences</b></h5>
-                                        <h5>Domaine visé :  <b>Linguistique</b></h5>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-7 align-self-center">
+                        
                     </div>
-                    <!-- Column -->
+                    
                 </div>
-                <!-- Row -->
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div>
+                                <h4 class="card-title m-t-5"><span class="lstick"></span>Veuillez choisir la classe : </h4>
+                            </div>
+                            <div class="ml-2">
+                                <select (ngModel)="selectedClass" (change)="onChange($event.target.value)" class="custom-select">
+                                    <option *ngFor="let class of listClass" [value]="class.IDCLASSROOM" >{{class.CLASSNAME}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- Projects of the month -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    
+                                </div>
+                                <div class="table-responsive m-t-20 no-wrap">
+                                    <table class="table vm no-th-brd pro-of-month">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th></th>
+                                                <th>Numéro</th>
+                                                <th>Nom</th>
+                                                <th>Prénom</th>
+                                                <th>Sexe</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let student of listStudents let i=index">
+                                                
+                                            <td style="width:50px;"><a routerLink="/student/{{student.IDSTUDENT}}"><span class="round">{{ student.FIRSTNAME[0] }}{{ student.LASTNAME[0] }}</span></a></td>
+                                            <td><a routerLink="/student/{{student.IDSTUDENT}}">{{i+1}}</a></td>
+                                            <td><a routerLink="/student/{{student.IDSTUDENT}}">{{ student.FIRSTNAME }}</a></td>
+                                            <td><a routerLink="/student/{{student.IDSTUDENT}}">{{ student.LASTNAME }}</a></td>
+                                            <td *ngIf="student.SEX==1">Homme</td>
+                                            <td *ngIf="student.SEX==0">Femme</td>
+                                                
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== END ========================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- End Right panel -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
                 <!-- Right sidebar -->
@@ -161,9 +152,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer">
-                © 2019 Sinopsys by Minds Logic #DevFest
-            </footer>
+            <footer class="footer"> © 2019 Sinopsys by Minds Logic #DevFest </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

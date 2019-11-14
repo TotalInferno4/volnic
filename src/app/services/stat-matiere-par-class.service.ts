@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StatMatiereParClassService {
 
-  public url: string = "http://192.168.1.60:1852/"; //Glenn
-  // //public url: string = "192.168.1.62:1852/"; //Anjara
+  //public url: string = "http://192.168.1.60:1852/"; //Glenn
+  public url: string = "http://192.168.1.62:1852/"; //Anjara
 
   constructor(private http: HttpClient) { }
 
